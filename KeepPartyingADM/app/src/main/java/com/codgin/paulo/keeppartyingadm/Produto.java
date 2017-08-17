@@ -18,10 +18,11 @@ public class Produto {
         this.preco = preco;
     }
     public Produto(){}
-    public Produto(String nome, double preco, String imagem) {
+
+    public Produto(String nome, double preco, double totalPorProduto) {
         this.nome = nome;
         this.preco = preco;
-        this.imagem = imagem;
+        this.totalPorProduto = totalPorProduto;
     }
 
     public Produto(String nome, String status, double preco, String imagem, long tipo, int quantidade, double totalPorProduto, double totalPedido) {

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by Paulo on 08/08/2017.
@@ -33,7 +34,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
     }
 
     @Override
-    public void onBindViewHolder(PedidoViewHolder holder, int position) {
+    public void onBindViewHolder(PedidoViewHolder holder, final int position) {
         holder.txtNomeProduto.setText(String.valueOf(listaProduto.get(position)));
       //  holder.txtValorProduto.setText("R$ "+String.valueOf(listaProduto.get(position).getPreco()));
         //holder.txtTotalProduto.setText("R$ total neste produto: "+String.valueOf(listaProduto.get(position).getTotalPorProduto()));
@@ -41,6 +42,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
             @Override
             public void onClick(View v) {
                 Intent intentDetalhe = new Intent(context, DetalhePedidoActivity.class);
+                intentDetalhe.putExtra("idPedido", String.valueOf(listaProduto.get(position)));
                 context.startActivity(intentDetalhe);
             }
         });
